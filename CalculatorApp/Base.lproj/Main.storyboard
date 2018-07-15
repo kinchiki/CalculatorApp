@@ -150,7 +150,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="1"/>
                                 <connections>
-                                    <action selector="inputFormula:" destination="BYZ-38-t0r" eventType="touchDragInside" id="KHy-PP-4Tu"/>
+                                    <action selector="inputFormula:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JM4-FM-GsR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw3-3h-OJ3">
