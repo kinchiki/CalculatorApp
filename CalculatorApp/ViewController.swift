@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Expression
 
 class ViewController: UIViewController {
 
@@ -41,6 +42,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateAnswer(_ sender: UIButton) {
+        guard let formulaText = formulaLabel.text else {
+            return
+        }
+        let formula: String = formatFormula(formulaText)
+        answerLabel.text = evalFormula(formula)
+    }
 
     private func formatFormula(_ formula: String) -> String {
         let formattedFormula: String = formula.replacingOccurrences(
@@ -50,5 +57,15 @@ class ViewController: UIViewController {
                 range: nil
             ).replacingOccurrences(of: "÷", with: "/").replacingOccurrences(of: "×", with: "*")
         return formattedFormula
+    }
+
+    private func evalFormula(_ formula: String) -> String {
+        do {
+            let expression = Expression(formula)
+            let answer = try expression.evaluate()
+            return formatAnswer(String(answer))
+        } catch {
+            return "invaild formula!"
+        }
     }
 }
