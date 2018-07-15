@@ -25,10 +25,21 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func clearCalculation(_ sender: UIButton) {
-    }
-    @IBAction func calculateAnswer(_ sender: UIButton) {
-    }
     @IBAction func inputFormula(_ sender: UIButton) {
+        guard let formulaText = formulaLabel.text else {
+            return
+        }
+        guard let senderedText = sender.titleLabel?.text else {
+            return
+        }
+        formulaLabel.text = formulaText + senderedText
+    }
+
+    @IBAction func clearCalculation(_ sender: UIButton) {
+        formulaLabel.text = ""
+        answerLabel.text = ""
+    }
+
+    @IBAction func calculateAnswer(_ sender: UIButton) {
     }
 }
