@@ -68,4 +68,14 @@ class ViewController: UIViewController {
             return "invaild formula!"
         }
     }
+
+    private func formatAnswer(_ answer: String) -> String {
+        let formattedAnswer: String = answer.replacingOccurrences(
+            of: "\\.0",
+            with: "",
+            options: NSString.CompareOptions.regularExpression,
+            range: nil
+        )
+        return formattedAnswer
+    }
 }
