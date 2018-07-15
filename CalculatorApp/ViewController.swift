@@ -41,5 +41,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculateAnswer(_ sender: UIButton) {
+
+    private func formatFormula(_ formula: String) -> String {
+        let formattedFormula: String = formula.replacingOccurrences(
+                of: "(?<=^|[÷×\\+\\-\\(])([0-9]+)(?=[÷×\\+\\-\\)]|$)",
+                with: "$1.0",
+                options: NSString.CompareOptions.regularExpression,
+                range: nil
+            ).replacingOccurrences(of: "÷", with: "/").replacingOccurrences(of: "×", with: "*")
+        return formattedFormula
     }
 }
